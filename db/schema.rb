@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329050550) do
+ActiveRecord::Schema.define(version: 20160329094615) do
 
   create_table "body_metrics", force: :cascade do |t|
     t.integer  "height"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20160329050550) do
     t.date     "intake_date"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "item"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

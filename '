@@ -1,0 +1,15 @@
+class FoodItemsController < ApplicationController
+  def new
+   @food_item = FoodItem.new
+  end
+  def create
+    @food_item.create(food_item_params)
+    @food_item.save
+    redirect_to root_path
+  end
+
+  private
+  def food_item_params
+    params.require(:food_item).permit(:item, :quantity, :metrics, :calories)
+  end
+end

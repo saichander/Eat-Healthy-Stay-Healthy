@@ -1,0 +1,16 @@
+<table>
+<tr>
+  <th>Item<th>
+  <th>Quantity<th>
+  <th>Metrics<th>
+  <th>Calories<th>
+</tr>
+<% @food_list.each do |food_item| %>
+<tr>
+  <td><%= food_item.item %></td>
+  <td><%= food_item.quantity %></td>
+  <td><%= food_item.metrics %></td>
+  <td><%= food_item.calories %></td>
+</tr>
+<% end %>
+</table>

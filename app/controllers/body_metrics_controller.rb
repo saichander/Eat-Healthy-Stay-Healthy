@@ -5,9 +5,13 @@ class BodyMetricsController < ApplicationController
 
   def create
     @user_body_metric = current_user.build_body_metric(body_metric_params)
+    if @user_body_metric.save
+      redirect_to root_path
+    end
   end
 
   def edit
+    @edit_body_metric = current_user.body_metric
   end
 
   private
