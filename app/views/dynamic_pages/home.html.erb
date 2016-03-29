@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <div class="left-main">
+    <nav class="left-menu">
+      <ul>
+        <li><%= link_to 'BodyMetric', new_body_metric_path(current_user.id) %></li>
+        <li><%= link_to 'FoodList',"#" %></li>
+        <li><%= link_to 'FoodRecord',"#" %></li>
+        <li><%= link_to 'WorkoutVideos',"#" %></li>
+      </ul>
+    </nav>
+  </div>
+  <h1>Welcome <%= current_user.email %> </h1>
+<% else %>
+  <h1>Count your calories</h1>
+  <button type="button" class="btn btn-lg btn-primary sign"><%= link_to 'Sign up now',new_user_registration_path %></button>
+<% end %>

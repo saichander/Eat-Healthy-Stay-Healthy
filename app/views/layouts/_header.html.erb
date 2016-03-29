@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="logo">
+      <%= image_tag("logo.jpg", :alt => "home image", :width => 100, :height => 100, class: "image-logo") %>
+      <div class="subtitle"> Eat Healthy Stay Healthy</div>
+    </div>
+    <nav >
+      <ul class="nav navbar-nav navbar-right ">
+        <li><%= link_to 'Home',root_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+        <% end %>
+        <li><%= link_to 'About',"#"%></li>
+      </ul>
+    </nav>
+  </div>
+</nav>

@@ -1,0 +1,14 @@
+<h1>TDEE CALCULATOR</h1>
+<%= form_for ([current_user,@user_body_metric]) do |f| %>
+  <%= f.label 'height' %>
+  <%= f.number_field 'height' %>
+  <%= f.label 'weight' %>
+  <%= f.number_field 'weight' %>
+  <%= f.label 'Activity Level' %>
+  <%= f.radio_button 'activity_level','1.2' %>Sedenetary
+  <%= f.radio_button 'activity_level','1.375' %>Lightly Avtive
+  <%= f.radio_button 'activity_level','1.55' %>Moderately Active
+  <%= f.radio_button 'activity_level','1.725' %>Very Active
+  <%= f.radio_button 'activity_level','1.9' %>Extremely Active
+  <%= f.submit 'Calculate TDEE' %>
+<% end %>
