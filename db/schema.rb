@@ -13,8 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20160329050550) do
 
-# Could not dump table "body_metrics" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "body_metrics", force: :cascade do |t|
+    t.integer  "height"
+    t.integer  "weight"
+    t.float    "activity_level"
+    t.integer  "calculated_calories"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "user_id"
+  end
 
   create_table "food_items", force: :cascade do |t|
     t.string   "item"

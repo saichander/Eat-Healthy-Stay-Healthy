@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  #TODO: remove user_id
   get 'user/:user_id/body_metric/new' => 'body_metrics#new', as: :new_body_metric
+  post 'user/:user_id/body_metrics' => 'body_metrics#create'
   get 'user/:user_id/body_metrics' => 'body_metrics#index', as: :user_body_metrics
   get 'user/:user_id/body_metric/:id/edit' => 'body_metrics#edit', as: :edit_body_metric
-  get 'food_items/new' => 'food_items#new', as: :new_food_item
+
+  get '/food_items/new' => 'food_items#new', as: :new_food_item
   get '/food_items' => 'food_items#index', as: :food_items
 
-  get 'body_metrics/edit'
-
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
