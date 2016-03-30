@@ -29,6 +29,13 @@ class FoodRecordsController < ApplicationController
     end
   end
 
+  def check_log
+  end
+
+  def search_log
+    @food_records = current_user.food_records.where(intake_date: params[:food_log][:date])
+  end
+
   private
   def food_record_params
     params.require(:food_record).permit(:item, :quantity, :intake_date)

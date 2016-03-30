@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get 'user/food_records/:id/edit' => 'food_records#edit', as: :edit_food_record
   patch 'user/food_records/:id' => 'food_records#update',as: :update_food_record
   delete 'user/food_records/:id' => 'food_records#destroy',as: :destroy_food_record
+  get 'user/food_records/log' => 'food_records#check_log',as: :check_log
+  post 'user/food_records/log' => 'food_records#search_log', as: :search_log
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
