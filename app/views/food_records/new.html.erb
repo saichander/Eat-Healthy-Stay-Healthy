@@ -1,6 +1,7 @@
+
 <%= form_for @food_record, url: create_food_record_path, class: 'form-horizontal' do |f| %>
   <%= f.label 'Item' %>
-  <%= f.text_field :item, class:'form-control'%>
+  <%= f.select :item, FoodItem.all.collect {|record| record.item }, prompt: "Select item", class:'form-control'%><br/>
   <%= f.label 'Quantity' %>
   <%= f.number_field :quantity, class:'form-control' %>
   <%= f.label 'Intake date' %>

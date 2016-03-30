@@ -1,9 +1,11 @@
-<table>
+
+<table class="table table-hover">
   <tr>
     <th>Item</th>
     <th>Quantity</th>
     <th>Intake_calories</th>
     <th>Edit</th>
+    <th>Delete</th>
   </tr>
   <% @food_records.each do |food_record| %>
     <tr>
@@ -11,5 +13,6 @@
       <td><%= food_record.quantity %></td>
       <td><%= food_record.intake_calories%></td>
       <td><%= link_to 'Edit',edit_food_record_path(food_record.id) %></td>
+      <td><%= link_to 'Delete',destroy_food_record_path(food_record.id), :method => :delete %></td>
     </tr>
   <% end %>

@@ -8,7 +8,12 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <%= yield %>
+    <div class="center">
+      <% if user_signed_in? %>
+        <%= render 'layouts/left' %>
+      <% end %>
+      <%= yield %>
+      </div>
     <%= render 'layouts/footer' %>
   </body>
 </html>

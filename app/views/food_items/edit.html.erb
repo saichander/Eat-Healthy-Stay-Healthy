@@ -1,0 +1,13 @@
+<%= form_for @food_item,url: update_food_item_path(@food_item.id), class: 'form-horizontal' do |f| %>
+  <%= f.label 'Item' %>
+  <%= f.text_field :item, class:'form-control' %>
+  <%= f.label 'Quantity' %>
+  <%= f.number_field :quantity,class:'form-control' %>
+  <%= f.label 'Metrics' %>
+  <%= f.text_field :metrics, class:'form-control' %>
+  <%= f.label 'Calories' %>
+  <%= f.number_field :calories, class:'form-control' %>
+  <%= f.submit 'Edit food item', class:'btn btn-default' %>
+<% end %>
+
+

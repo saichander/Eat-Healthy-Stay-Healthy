@@ -1,20 +1,20 @@
 <h1>TDEE CALCULATOR</h1>
 <%= form_for @user_body_metric, url: create_body_metric_path, class:'form-hoizontal' do |f| %>
   <div class='form-group'>
-  <%= f.label 'height' %>
-  <%= f.number_field :height, class:'form-control' %>
+    <%= f.label 'height' %>
+    <%= f.number_field :height, placeholder: "in centi meters", class:'form-control' %>
   </div>
   <div class='form-group'>
-  <%= f.label 'weight' %>
-  <%= f.number_field :weight,class:'form-control' %>
+    <%= f.label 'weight' %>
+    <%= f.number_field :weight, placeholder: "in kilo grams", class:'form-control' %>
   </div>
   <div class='form-group'>
     <%= f.label 'Activity Level' %><br>
-  <%= f.radio_button :activity_level,'1.2' %>Sedenetary<br>
-  <%= f.radio_button :activity_level,'1.375' %>Lightly Avtive<br>
-  <%= f.radio_button :activity_level,'1.55' %>Moderately Active<br>
-  <%= f.radio_button :activity_level,'1.725' %>Very Active<br>
-  <%= f.radio_button :activity_level,'1.9' %>Extremely Active<br>
+    <%= f.radio_button :activity_level,'1.2' %>Sedenetary<br>
+    <%= f.radio_button :activity_level,'1.375' %>Lightly Avtive<br>
+    <%= f.radio_button :activity_level,'1.55' %>Moderately Active<br>
+    <%= f.radio_button :activity_level,'1.725' %>Very Active<br>
+    <%= f.radio_button :activity_level,'1.9' %>Extremely Active<br>
   </div>
   <%= f.submit 'Calculate TDEE', class:'btn btn-default' %>
   <%= f.submit "clear", :type => "reset",class: 'btn btn-default' %>

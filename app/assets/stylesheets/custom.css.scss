@@ -4,8 +4,13 @@
 body{
   padding-top:70px;
 }
-.btn .btn-lg{
-  color:white;
+.center{
+  margin:40px auto 0;
+  width:65%;
+}
+.btn, .btn-default{
+ background-color:#0095ff;
+ color:#fff;
 }
 .links-top{
   list-style:none;
@@ -37,13 +42,37 @@ nav ul.navbar-right{
   right: 12px;
   bottom: 0;
 }
-.left-main{
-float:left;
-padding-top:30px;
+.left-menu{
+  position:absolute;
+  top:105px;
+  left:0;
+  bottom:50px;
+  ul{
+    list-style:None;
+    li{
+      padding:8px;
+  }}
 }
-.left-menu ul{
-list-style:None;
-li{
-padding:8px;
+.calorie-home{
+  background-color:#EEEEEE;
+  border-radius:2px;
+  padding:15px;
+  width:147px;
+  display:inline-block;
 }
+.table{
+  border:1;
+}
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:0;
+  .container p{
+    text-align:center;
+}}
+
+.signup{
+  text-align:center;
 }

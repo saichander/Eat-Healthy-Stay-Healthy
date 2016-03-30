@@ -1,16 +1,32 @@
 <% if user_signed_in? %>
-  <div class="left-main">
-    <nav class="left-menu">
-      <ul>
-        <li><%= link_to 'BodyMetric', new_body_metric_path(current_user.id) %></li>
-        <li><%= link_to 'FoodList',new_food_item_path %></li>
-        <li><%= link_to 'FoodRecord', new_food_record_path %></li>
-        <li><%= link_to 'WorkoutVideos',"#" %></li>
-      </ul>
-    </nav>
+  <div class="home-main">
+    <h1>Welcome <%= current_user.email %> </h1>
+    <div class="calorie-home">
+      <p>Calories Taken</p>
+      <%= @taken_calories = current_user.food_records.where(intake_date: Date.today).map(&:intake_calories).sum %>
+    </div>
+    <div class="calorie-home">
+      <% if current_user.body_metric.nil? %>
+      <% else %>
+        <p>Calories Required</p>
+        <%= @calc_calories = current_user.body_metric.calculated_calories %>
+    </div>
+    <p>You still need to take <%= (@calc_calories-@taken_calories).to_i %> calories to maintain your weight.</p>
+    <p>Progress</p>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax=<%= @calc_calories %> style="width: <%= @calc_width=(@taken_calories.to_f/@calc_calories.to_f)*100 %>%;">
+        <%= @calc_width.to_i %>% completed
+      </div>
+    </div>
+  <% end %>
+  <%= link_to '<i class = "glyphicon glyphicon-plus"> Add Food Record</i>'.html_safe, new_food_record_path %>
+  <br>
+  <p>Today's Food Record</p>
+  <%= render :template => 'food_records/index' %>
   </div>
-  <h1>Welcome <%= current_user.email %> </h1>
 <% else %>
-  <h1>Count your calories</h1>
-  <button type="button" class="btn btn-lg btn-primary sign"><%= link_to 'Sign up now',new_user_registration_path %></button>
+  <div class="signup">
+    <h1>Count your calories</h1>
+    <button type="button" class="btn btn-default"><%= link_to 'Sign up now',new_user_registration_path %></button>
+  </div>
 <% end %>

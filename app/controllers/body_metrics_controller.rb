@@ -1,6 +1,10 @@
 class BodyMetricsController < ApplicationController
   def new
+    if current_user.body_metric.nil?
     @user_body_metric = current_user.build_body_metric
+    else
+      redirect_to edit_body_metric_path
+    end
   end
 
   def create
@@ -12,6 +16,11 @@ class BodyMetricsController < ApplicationController
 
   def edit
     @edit_body_metric = current_user.body_metric
+  end
+
+  def update
+    current_user.body_metric.update_attributes(body_metric_params)
+    redirect_to root_path
   end
 
   private

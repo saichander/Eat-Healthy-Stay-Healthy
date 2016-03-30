@@ -10,7 +10,8 @@ class FoodRecordsController < ApplicationController
     end
   end
   def index
-    @food_records = current_user.food_records.find_by(intake_date: Date.today)
+    @food_record = FoodRecord.new
+    @food_records = current_user.food_records.where(intake_date: Date.today)
   end
 
   def edit
@@ -22,8 +23,14 @@ class FoodRecordsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    if current_user.food_records.find_by(id: params[:id]).destroy
+      redirect_to root_path
+    end
+  end
+
   private
   def food_record_params
-    params.require(:food_record).permit(:item, :quanity, :intake_date)
+    params.require(:food_record).permit(:item, :quantity, :intake_date)
   end
 end
