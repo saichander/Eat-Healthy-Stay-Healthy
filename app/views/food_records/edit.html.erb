@@ -1,11 +1,11 @@
-
-<%= form_for @edit_food_record,url: update_food_record_path(@edit_food_record.id), class:'form-horizontal' do |f| %>
+<%= form_for @edit_food_record,url: update_food_record_path(params[:id]), class:'form-horizontal' do |f| %>
+  <%= render 'shared/error_messages',object: f.object %>
   <%= f.label 'Item' %>
   <%= f.select :item,FoodItem.all.collect {|a| a.item }, propmt: "Select Item", class: "form-control" %><br/>
   <%= f.label 'Quantity' %>
   <%= f.number_field :quantity, class:'form-control' %>
   <%= f.label 'Intake date' %>
-  <%= f.date_field :intake_date, class:'form-control' %>
-  <%= f.submit 'Edit Food Record', class: 'btn btn-default' %>
+  <%= f.date_field :intake_date, :value => Date.today, class:'form-control' %>
+  <%= f.submit 'Edit Food Record', class: 'btn btn-primary' %>
 <% end %>
 

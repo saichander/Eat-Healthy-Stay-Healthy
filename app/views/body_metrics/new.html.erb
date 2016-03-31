@@ -1,5 +1,6 @@
 <h1>TDEE CALCULATOR</h1>
 <%= form_for @user_body_metric, url: create_body_metric_path, class:'form-hoizontal' do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
   <div class='form-group'>
     <%= f.label 'height' %>
     <%= f.number_field :height, placeholder: "in centi meters", class:'form-control' %>
@@ -16,6 +17,6 @@
     <%= f.radio_button :activity_level,'1.725' %>Very Active<br>
     <%= f.radio_button :activity_level,'1.9' %>Extremely Active<br>
   </div>
-  <%= f.submit 'Calculate TDEE', class:'btn btn-default' %>
-  <%= f.submit "clear", :type => "reset",class: 'btn btn-default' %>
+  <%= f.submit 'Calculate TDEE', class:'btn btn-primary' %>
+  <%= f.submit "clear", :type => "reset",class: 'btn btn-primary' %>
 <% end %>

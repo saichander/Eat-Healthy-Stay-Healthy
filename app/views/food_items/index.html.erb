@@ -1,28 +1,29 @@
-
 <% if current_user.admin? %>
   <%= render :template => 'food_items/new' %>
 <% end %>
-<table class='table table-hover'>
-  <tr>
-    <th>Item</th>
-    <th>Quantity</th>
-    <th>Metrics</th>
-    <th>Calories</th>
-    <% if current_user.admin? %>
-      <th>Edit</th>
-      <th>Delete</th>
-    <% end %>
-  </tr>
-  <% @food_list.each do |food_item| %>
+<% if @food_list.count != 0 %>
+  <table class='table table-hover'>
     <tr>
-      <td><%= food_item.item %></td>
-      <td><%= food_item.quantity %></td>
-      <td><%= food_item.metrics %></td>
-      <td><%= food_item.calories %></td>
-      <%if current_user.admin? %>
-        <td><%= link_to 'Edit', edit_food_item_path(food_item.id) %></td>
-        <td><%= link_to 'Delete', destroy_food_item_path(food_item.id),:method => :delete %>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Metrics</th>
+      <th>Calories</th>
+      <% if current_user.admin? %>
+        <th>Edit</th>
+        <th>Delete</th>
       <% end %>
     </tr>
-  <% end %>
-</table>
+    <% @food_list.each do |food_item| %>
+      <tr>
+        <td><%= food_item.item %></td>
+        <td><%= food_item.quantity %></td>
+        <td><%= food_item.metrics %></td>
+        <td><%= food_item.calories %></td>
+        <%if current_user.admin? %>
+          <td><%= link_to 'Edit', edit_food_item_path(food_item.id) %></td>
+          <td><%= link_to 'Delete', destroy_food_item_path(food_item.id),:method => :delete %>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

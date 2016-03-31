@@ -1,5 +1,5 @@
 <%= form_for :food_log, url: search_log_path, class: 'form-horizontal' do |f| %>
   <%= f.label :Date %>
-  <%= f.date_field :date, class:'form-control' %>
-  <%= f.submit 'Check Food Record Log', class:"btn btn-default" %>
+  <%= f.date_field :date, :value => Date.today, class:'form-control' %>
+  <%= f.submit 'Check Food Record Log', class:"btn btn-primary" %>
 <% end %>

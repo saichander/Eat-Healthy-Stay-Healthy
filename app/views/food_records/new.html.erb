@@ -1,10 +1,11 @@
 
 <%= form_for @food_record, url: create_food_record_path, class: 'form-horizontal' do |f| %>
+  <%= render 'shared/error_messages',object: f.object %>
   <%= f.label 'Item' %>
   <%= f.select :item, FoodItem.all.collect {|record| record.item }, prompt: "Select item", class:'form-control'%><br/>
   <%= f.label 'Quantity' %>
   <%= f.number_field :quantity, class:'form-control' %>
   <%= f.label 'Intake date' %>
-  <%= f.date_field :intake_date,class:'form-control' %>
-  <%= f.submit 'Add Food Record',class:'btn btn-default' %>
+  <%= f.date_field :intake_date, :value => Date.today, class:'form-control' %>
+  <%= f.submit 'Add Food Record',class:'btn btn-primary' %>
 <% end %>

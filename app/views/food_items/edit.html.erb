@@ -1,4 +1,5 @@
 <%= form_for @food_item,url: update_food_item_path(@food_item.id), class: 'form-horizontal' do |f| %>
+  <%= render 'shared/error_messages',object: f.object %>
   <%= f.label 'Item' %>
   <%= f.text_field :item, class:'form-control' %>
   <%= f.label 'Quantity' %>
@@ -7,7 +8,7 @@
   <%= f.text_field :metrics, class:'form-control' %>
   <%= f.label 'Calories' %>
   <%= f.number_field :calories, class:'form-control' %>
-  <%= f.submit 'Edit food item', class:'btn btn-default' %>
+  <%= f.submit 'Edit food item', class:'btn btn-primary' %>
 <% end %>
 
 

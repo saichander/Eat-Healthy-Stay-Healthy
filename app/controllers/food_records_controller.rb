@@ -1,4 +1,6 @@
 class FoodRecordsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @food_record = FoodRecord.new
   end
@@ -7,6 +9,8 @@ class FoodRecordsController < ApplicationController
     @food_record = current_user.food_records.create(food_record_params)
     if @food_record.save
       redirect_to root_path
+    else
+      render 'new'
     end
   end
   def index
@@ -19,8 +23,13 @@ class FoodRecordsController < ApplicationController
   end
 
   def update
-    current_user.food_records.find(params[:id]).update_attributes(food_record_params)
-    redirect_to root_path
+    @edit_food_record = current_user.food_records.find(params[:id])
+    if @edit_food_record.update_attributes(food_record_params)
+      redirect_to root_path
+    else
+      byebug
+      render 'edit'
+    end
   end
 
   def destroy

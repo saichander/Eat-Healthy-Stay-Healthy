@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get 'user/body_metric/new' => 'body_metrics#new', as: :new_body_metric
-  post 'user/body_metrics' => 'body_metrics#create',as: :create_body_metric
-  get 'user/body_metric/edit' => 'body_metrics#edit', as: :edit_body_metric
-  patch 'user/body_metrics' => 'body_metrics#update', as: :update_body_metric
+  get '/body_metric/new' => 'body_metrics#new', as: :new_body_metric
+  post '/body_metrics' => 'body_metrics#create',as: :create_body_metric
+  get '/body_metric/edit' => 'body_metrics#edit', as: :edit_body_metric
+  patch '/body_metrics' => 'body_metrics#update', as: :update_body_metric
 
   get '/food_items/new' => 'food_items#new', as: :new_food_item
   post '/food_items' => 'food_items#create', as: :create_food_item
@@ -19,14 +19,14 @@ Rails.application.routes.draw do
   patch 'food_items/' => 'food_items#update', as: :update_food_item
   delete 'food_items/:id' => 'food_items#destroy',as: :destroy_food_item
 
-  get 'user/food_records/new' => 'food_records#new', as: :new_food_record
-  post 'user/food_records' => 'food_records#create',as: :create_food_record
-  get 'user/food_records' => 'food_records#index', as: :user_food_record
-  get 'user/food_records/:id/edit' => 'food_records#edit', as: :edit_food_record
-  patch 'user/food_records/:id' => 'food_records#update',as: :update_food_record
-  delete 'user/food_records/:id' => 'food_records#destroy',as: :destroy_food_record
-  get 'user/food_records/log' => 'food_records#check_log',as: :check_log
-  post 'user/food_records/log' => 'food_records#search_log', as: :search_log
+  get '/food_records/new' => 'food_records#new', as: :new_food_record
+  post '/food_records' => 'food_records#create',as: :create_food_record
+  get '/food_records' => 'food_records#index', as: :user_food_record
+  get '/food_records/:id/edit' => 'food_records#edit', as: :edit_food_record
+  patch '/food_records/:id' => 'food_records#update',as: :update_food_record
+  delete '/food_records/:id' => 'food_records#destroy',as: :destroy_food_record
+  get '/food_records/log' => 'food_records#check_log',as: :check_log
+  post '/food_records/log' => 'food_records#search_log', as: :search_log
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

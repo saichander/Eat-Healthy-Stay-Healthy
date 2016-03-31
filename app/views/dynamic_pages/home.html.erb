@@ -21,12 +21,16 @@
   <% end %>
   <%= link_to '<i class = "glyphicon glyphicon-plus"> Add Food Record</i>'.html_safe, new_food_record_path %>
   <br>
-  <p>Today's Food Record</p>
-  <%= render :template => 'food_records/index' %>
+  <% if @food_records.count != 0 %>
+    <p>Today's Food Record</p>
+    <%= render :template => 'food_records/index' %>
+  <% else %>
+    <p>You have 0 food records today</p>
+  <% end %>
   </div>
 <% else %>
   <div class="signup">
     <h1>Count your calories</h1>
-    <button type="button" class="btn btn-default"><%= link_to 'Sign up now',new_user_registration_path %></button>
+    <button type="button" class="btn sign_up btn-lg"><%= link_to 'Sign up now',new_user_registration_path, class:"sign_up" %></button>
   </div>
 <% end %>

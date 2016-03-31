@@ -1,13 +1,18 @@
 class FoodItemsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @food_item = FoodItem.new
   end
 
   def create
-    @food_item = FoodItem.create(food_item_params)
-    if @food_item.save
-      redirect_to food_items_path
+    if current_user.admin?
+      @food_item = FoodItem.create(food_item_params)
+      if @food_item.save
+        redirect_to food_items_path
+      else
+        render 'new'
+      end
     end
   end
 
@@ -21,15 +26,19 @@ class FoodItemsController < ApplicationController
   end
 
   def update
-    @food_item = FoodItem.find(params[:format])
-    @food_item.update_attributes(food_item_params)
-    redirect_to root_path
+    if current_user.admin?
+      @food_item = FoodItem.find(params[:format])
+      if @food_item.update_attributes(food_item_params)
+        redirect_to food_items_path
+      else
+        render 'edit'
+      end
+    end
   end
-
   def destroy
-   if FoodItem.find(params[:id]).destroy
-     redirect_to food_items_path
-   end
+    if FoodItem.find(params[:id]).destroy
+      redirect_to food_items_path
+    end
   end
   private
   def food_item_params
