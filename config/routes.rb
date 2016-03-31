@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/food_items' => 'food_items#create', as: :create_food_item
   get '/food_items' => 'food_items#index', as: :food_items
   get 'food_items/:id/edit' => 'food_items#edit', as: :edit_food_item
-  patch 'food_items/' => 'food_items#update', as: :update_food_item
+  patch 'food_items/:id' => 'food_items#update', as: :update_food_item
   delete 'food_items/:id' => 'food_items#destroy',as: :destroy_food_item
 
   get '/food_records/new' => 'food_records#new', as: :new_food_record

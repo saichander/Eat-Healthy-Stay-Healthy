@@ -1,23 +1,17 @@
 class FoodRecord < ActiveRecord::Base
   belongs_to :user
 
-  after_create :compute_calories
-  after_update :update_calories
+  before_save :compute_calories
 
   validates :item, :quantity, :intake_date, presence: true
   validates :quantity, numericality: {only_integer: false}
 
   def compute_calories
-    @item = FoodItem.find_by(item: self.item)
-    @calories_intake = @item.calories*self.quantity
-    self.update_attributes(intake_calories: @calories_intake)
+    @food_item = FoodItem.find_by(item: self.item)
+    self.intake_calories = @food_item.calories * self.quantity
   end
 
-  def update_calories
-    @item = FoodItem.find_by(item: self.item)
-    @calories_intake = @item.calories*self.quantity
-    if self.intake_calories != @calories_intake
-      self.update_attributes(intake_calories: @calories_intake)
-    end
+  def self.food_records_by_date date=Date.today
+    where(intake_date: date)
   end
 end
