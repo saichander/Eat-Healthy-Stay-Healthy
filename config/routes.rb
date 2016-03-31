@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'food_records/new'
-
-  get 'food_records/index'
-
-  get 'food_records/edit'
-
   devise_for :users
 
   get '/body_metric/new' => 'body_metrics#new', as: :new_body_metric
@@ -27,6 +21,14 @@ Rails.application.routes.draw do
   delete '/food_records/:id' => 'food_records#destroy',as: :destroy_food_record
   get '/food_records/log' => 'food_records#check_log',as: :check_log
   post '/food_records/log' => 'food_records#search_log', as: :search_log
+
+  get '/workouts/new' => 'workouts#new', as: :new_workout
+  post '/workouts' => 'workouts#create',as: :create_workout
+  get '/workouts' => 'workouts#index',as: :workouts
+  get '/workouts/:id/edit' => 'workouts#edit',as: :edit_workout
+  patch '/workouts' => 'workouts#update',as: :update_workout
+  delete '/workouts/:id' => 'workouts#destroy',as: :destroy_workout
+  post 'workouts/search' => 'workouts#search',as: :search_video
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -78,3 +78,29 @@ nav ul.navbar-right{
 .signup{
   text-align: center;
 }
+/* workouts */
+.embed-container {
+  float:left;
+  position: relative;
+  padding: 30px 30px 10px 0;
+  height: 0;
+  overflow: hidden;
+  width: 350px;
+  height: 200px;
+  margin-bottom: 12px;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 350px;
+  height: 200px;
+}
+.workout-title{
+  font-size:14px;
+position:relative;
+top:215px;
+left:-315px;
+}

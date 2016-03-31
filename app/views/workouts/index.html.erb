@@ -1,0 +1,14 @@
+<%= form_for :search,url: search_video_path, class:'form-horizontal' do |f| %>
+  <%= f.text_field :term,class:'form-control' %>
+  <%= f.submit 'Search',class:"btn btn-primary" %>
+<% end %>
+<% @workouts.each do |workout| %>
+  <div class="embed-container">
+    <%= embed(workout.youtube_url) %>
+  </div>
+   <p class="workout-title"><%= workout.title %>
+<% if current_user.admin? %>
+  <%= link_to 'Edit',edit_workout_path(workout.id) %>
+  <%= link_to 'Delete',destroy_workout_path(workout.id),:method => :delete %>
+<% end %></p>
+<% end %>

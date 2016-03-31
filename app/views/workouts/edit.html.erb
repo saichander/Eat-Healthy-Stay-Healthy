@@ -1,0 +1,9 @@
+<%= form_for @workout,url: update_workout_path(@workout.id), class: 'form-horizontal' do |f|%>
+  <%= render 'shared/error_messages',object: f.object %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class:'form-control' %>
+  <%= f.label :youtube_url %>
+  <%= f.text_field :youtube_url, class:'form-control' %>
+  <%= f.submit "Edit Video",class:"btn btn-primary" %>
+<% end %>
+
