@@ -1,10 +1,6 @@
 class WorkoutsController < ApplicationController
   def new
-    if current_user.admin?
       @workout = Workout.new
-    else
-      redirect_to workouts_path
-    end
   end
 
   def create
