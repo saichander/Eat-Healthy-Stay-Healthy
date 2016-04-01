@@ -4,6 +4,11 @@
 body{
   padding-top:70px;
 }
+/*
+.home-signup{
+background-size:cover;
+background: url("http://abdtransmarinas.com/beta/wp-content/uploads/2015/12/Food.jpg") no-repeat}
+ */
 .center{
   margin:40px auto 0;
   width:65%;
@@ -32,13 +37,20 @@ ul.link-top li{
   position: absolute;
   left: 192px;
   bottom: 0;
-  font: italic 12px/30px Georgia, serif;
+  font: italic 20px/30px Georgia, serif;
+  color:#fff;
 
 }
 nav ul.navbar-right{
   position: absolute;
   right: 12px;
   bottom: 0;
+  .colour{
+    color:white;
+    &:hover{color:#fff;
+      text-decoration:underline;
+  }}
+
 }
 .left-menu{
   position:absolute;
@@ -74,20 +86,30 @@ nav ul.navbar-right{
 .sign_up{
   background-color:#735FF3;
   color:white;
+  &:hover{
+    color:white;
+  }
 }
 .signup{
   text-align: center;
 }
 /* workouts */
+.video-title{
+  vertical-align:top;
+  display:inline-block;
+  width:100%;
+  box-sizing:border-box;
+  padding-right:10px;
+  margin: 12px ;
+}
 .embed-container {
   float:left;
   position: relative;
-  padding: 30px 30px 10px 0;
-  height: 0;
   overflow: hidden;
   width: 350px;
   height: 200px;
-  margin-bottom: 12px;
+  text-align:right;
+  margin-right: 12px ;
 }
 
 .embed-container iframe,
@@ -98,9 +120,25 @@ nav ul.navbar-right{
   width: 350px;
   height: 200px;
 }
+.title-for-video{
+position: relative;
+font-size:18px;
+color:#5BA1D7;
+}
+/*
 .workout-title{
-  font-size:14px;
+font-size:14px;
 position:relative;
 top:215px;
 left:-315px;
+}*/
+/* header */
+.form-control{
+  width:25%;
+}
+.btn{
+  margin-top:10px;
+}
+.links-colour li .colour{
+  color:white;
 }

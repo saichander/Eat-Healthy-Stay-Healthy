@@ -10,4 +10,16 @@ class User < ActiveRecord::Base
   def today_food_records
     FoodRecord.food_records_by_date.where(user_id: self.id)
   end
+
+  def male?
+    gender == male
+  end
+
+  def female?
+    gender == female
+  end
+
+  def age
+    (Date.today - self.dob).to_i / 365
+  end
 end

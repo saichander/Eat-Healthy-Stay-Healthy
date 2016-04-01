@@ -18,8 +18,9 @@ class FoodItemsController < ApplicationController
   end
 
   def index
-    #TODO: new food_item only if admin
-    @food_item = FoodItem.new
+    if current_user.admin?
+      @food_item = FoodItem.new
+    end
     @food_items = FoodItem.all
   end
 

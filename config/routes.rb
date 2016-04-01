@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   post '/workouts' => 'workouts#create',as: :create_workout
   get '/workouts' => 'workouts#index',as: :workouts
   get '/workouts/:id/edit' => 'workouts#edit',as: :edit_workout
-  patch '/workouts' => 'workouts#update',as: :update_workout
+  patch '/workouts/:id' => 'workouts#update',as: :update_workout
   delete '/workouts/:id' => 'workouts#destroy',as: :destroy_workout
   post 'workouts/search' => 'workouts#search',as: :search_video
   # The priority is based upon order of creation: first created -> highest priority.

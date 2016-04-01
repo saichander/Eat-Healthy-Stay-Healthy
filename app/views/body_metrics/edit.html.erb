@@ -2,7 +2,7 @@
 <%= form_for @edit_body_metric, url: update_body_metric_path, class:'form-horizontal' do |f| %>
   <%= render 'shared/error_messages',object: f.object %>
   <%= f.label :height %>
-  <%= f.number_field :height,class:'form-control' %>
+  <%= f.number_field :height,class:'form-control'%>
   <%= f.label :weight %>
   <%= f.number_field :weight, class:'form-control' %>
   <%= f.label 'Activity Level' %><br>

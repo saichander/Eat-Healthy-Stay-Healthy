@@ -5,14 +5,14 @@
       <div class="subtitle"> Eat Healthy Stay Healthy</div>
     </div>
     <nav >
-      <ul class="nav navbar-nav navbar-right ">
-        <li><%= link_to 'Home',root_path %></li>
+      <ul class="nav navbar-nav navbar-right links-colour ">
+        <li><%= link_to 'Home',root_path, class:"colour" %></li>
         <% if user_signed_in? %>
-          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, class:"colour" %></li>
         <% else %>
-          <li><%= link_to 'Login', new_user_session_path %></li>
+          <li><%= link_to 'Login', new_user_session_path,class:"colour" %></li>
         <% end %>
-        <li><%= link_to 'About',"#"%></li>
+        <li><%= link_to 'About',"#", class:"colour" %></li>
       </ul>
     </nav>
   </div>

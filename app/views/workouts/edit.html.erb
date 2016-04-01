@@ -1,4 +1,4 @@
-<%= form_for @workout,url: update_workout_path(@workout.id), class: 'form-horizontal' do |f|%>
+<%= form_for @workout,url: update_workout_path(@workout), class: 'form-horizontal' do |f|%>
   <%= render 'shared/error_messages',object: f.object %>
   <%= f.label :title %>
   <%= f.text_field :title, class:'form-control' %>
