@@ -14,4 +14,8 @@ class FoodRecord < ActiveRecord::Base
   def self.food_records_by_date date=Date.today
     where(intake_date: date)
   end
+
+  def self.find_todays_calories date
+    where("intake_date = ?", date).sum(:intake_calories)
+  end
 end

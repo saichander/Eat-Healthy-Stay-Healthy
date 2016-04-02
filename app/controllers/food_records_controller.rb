@@ -46,6 +46,10 @@ class FoodRecordsController < ApplicationController
     @food_records = current_user.food_records.where(intake_date: params[:food_log][:date])
   end
 
+  def graph
+
+  end
+
   private
   def food_record_params
     params.require(:food_record).permit(:item, :quantity, :intake_date)

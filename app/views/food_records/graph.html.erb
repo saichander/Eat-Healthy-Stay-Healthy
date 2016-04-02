@@ -1,0 +1,30 @@
+<script type = "text/javascript" charset="utf-8">
+$(function(){
+  new Highcharts.chart({
+    chart: {
+      renderTo: "charts-food"
+    },
+   title: {
+   text: "Graph between Intake calories and date"
+   },
+    xAxis: {
+      title: {
+      text: "Present Week"
+      },
+    type: "datetime"
+    },
+    yAxis: {
+      title: {
+        text: "Calories Intake"
+      }
+    },
+    series: [{
+      pointInterval: <%= 1.day * 1000 %>,
+      pointStart: <%= 1.week.ago.to_i * 1000%>,
+      data: <%= (1.week.ago.to_date..Date.today).map {|date| FoodRecord.find_todays_calories(date).to_f}.inspect %>
+    }]
+  });
+});
+</script>
+<div id = "charts-food" style="width:850px; height:500px;"></div>
+

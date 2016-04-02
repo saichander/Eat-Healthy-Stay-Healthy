@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   delete '/food_records/:id' => 'food_records#destroy',as: :destroy_food_record
   get '/food_records/log' => 'food_records#check_log',as: :check_log
   post '/food_records/log' => 'food_records#search_log', as: :search_log
+  get 'food_items/graph' => 'food_records#graph',as: :graph
 
   get '/workouts/new' => 'workouts#new', as: :new_workout
   post '/workouts' => 'workouts#create',as: :create_workout
