@@ -27,6 +27,9 @@
   <% else %>
     <p>You have 0 food records today</p>
   <% end %>
+  <div class="home-right">
+    <%= render :template => 'food_items/suggestion' %>
+  </div>
   </div>
 <% else %>
   <div class="signup home-signup">

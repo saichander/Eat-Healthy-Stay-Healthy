@@ -1,0 +1,14 @@
+Suggested Items to eat
+<table class = "table">
+  <tr>
+    <th>Item</th>
+    <th>Calories</th>
+  </tr>
+  <% @suggestion.each do |suggested| %>
+    <tr>
+      <td>
+        <%= suggested.item %></td>
+      <td><%= suggested.calories %></td>
+    </tr>
+  <% end %>
+</table>

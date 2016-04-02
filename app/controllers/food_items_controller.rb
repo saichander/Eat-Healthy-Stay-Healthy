@@ -36,6 +36,12 @@ class FoodItemsController < ApplicationController
       end
     end
   end
+
+  def suggestion
+   @time_of_the_day =FoodItem. get_time_of_the_day
+   @suggestion = FoodItem.where(preferred_time: @time_of_the_day)
+  end
+
   def destroy
     if @food_item.destroy
       redirect_to food_items_path
@@ -43,8 +49,9 @@ class FoodItemsController < ApplicationController
   end
 
   private
+
   def food_item_params
-    params.require(:food_item).permit(:item, :quantity, :metrics, :calories)
+    params.require(:food_item).permit(:item, :quantity, :metrics, :calories, :preferred_time)
   end
 
   def set_food_item

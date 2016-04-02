@@ -8,6 +8,13 @@
   <%= f.text_field :metrics, class:'form-control' %>
   <%= f.label 'Calories' %>
   <%= f.number_field :calories, class:'form-control' %>
+  <div class='form-group'>
+    <%= f.label 'Preffered Time' %><br>
+    <%= f.radio_button :preferred_time,'morning' %>Morning<br>
+    <%= f.radio_button :preferred_time,'afternoon' %>Afternoon<br>
+    <%= f.radio_button :preferred_time,'evening' %>Evening<br>
+    <%= f.radio_button :preferred_time,'night' %>Night<br>
+  </div>
   <%= f.submit 'Add food item', class:'btn btn-primary' %>
 <% end %>
 

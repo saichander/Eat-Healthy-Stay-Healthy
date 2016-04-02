@@ -8,6 +8,7 @@
       <th>Quantity</th>
       <th>Metrics</th>
       <th>Calories</th>
+      <th>Preferred time</th>
       <% if current_user.admin? %>
         <th>Edit</th>
         <th>Delete</th>
@@ -19,6 +20,7 @@
         <td><%= food_item.quantity %></td>
         <td><%= food_item.metrics %></td>
         <td><%= food_item.calories %></td>
+        <td><%= food_item.preferred_time %></td>
         <%if current_user.admin? %>
           <td><%= link_to 'Edit', edit_food_item_path(food_item.id) %></td>
           <td><%= link_to 'Delete', destroy_food_item_path(food_item.id),:method => :delete %>
