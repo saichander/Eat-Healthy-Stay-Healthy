@@ -12,6 +12,7 @@ class BodyMetricsController < ApplicationController
   def create
     @user_body_metric = current_user.build_body_metric(body_metric_params)
     if @user_body_metric.save
+      flash[:success] = "Successfully calculated"
       redirect_to root_path
     else
       render 'new'
@@ -24,6 +25,7 @@ class BodyMetricsController < ApplicationController
 
   def update
     if current_user.body_metric.update_attributes(body_metric_params)
+      flash[:success] = "Successfully updated"
       redirect_to root_path
     else
       @edit_body_metric = current_user.body_metric

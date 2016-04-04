@@ -10,7 +10,7 @@ background-size:cover;
 background: url("http://abdtransmarinas.com/beta/wp-content/uploads/2015/12/Food.jpg") no-repeat}
  */
 .center{
-  margin:40px auto 0;
+  margin:40px auto 15px;
   width:65%;
 }
 .btn, .btn-default{
@@ -54,21 +54,27 @@ nav ul.navbar-right{
 }
 .left-menu{
   position:absolute;
-  top:105px;
+  top:74px;
   left:0;
-  bottom:50px;
+  bottom:30px;
   ul{
     list-style:None;
+    padding:0;
     li{
-      padding:8px;
+      padding:12px 40px 12px 39px;
+      border-right:1px solid #D6D6D6;
+      border-bottom:1px solid #D6D6D6;
+      &:hover{
+      text-decoration:none!important;
+      }
   }}
 }
 .home-right{
-position:absolute;
-right:0;
-top:105px;
-bottom:50px;
-padding-right:10px;
+  position:absolute;
+  right:0;
+  top:105px;
+  bottom:50px;
+  padding-right:10px;
 }
 .calorie-home{
   background-color:#EEEEEE;
@@ -86,8 +92,11 @@ padding-right:10px;
   left:0;
   right:0;
   margin:0;
+  height:25px;
   .container p{
     text-align:center;
+    color:white;
+    z-index:2;
 }}
 
 .sign_up{
@@ -128,9 +137,9 @@ padding-right:10px;
   height: 200px;
 }
 .title-for-video{
-position: relative;
-font-size:18px;
-color:#5BA1D7;
+  position: relative;
+  font-size:18px;
+  color:#5BA1D7;
 }
 /*
 .workout-title{
@@ -144,8 +153,12 @@ left:-315px;
   width:25%;
 }
 .btn{
-  margin-top:10px;
+  margin:10px 0;
 }
 .links-colour li .colour{
   color:white;
+}
+.table-suggestion{
+overflow:auto;
+table-layout: fixed;
 }

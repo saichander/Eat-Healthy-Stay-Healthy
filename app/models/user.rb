@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
   end
 
   def male?
-    gender == male
+    gender == "male"
   end
 
   def female?
-    gender == female
+    gender == "female"
   end
 
   def age

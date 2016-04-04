@@ -11,10 +11,18 @@
         <p>Calories Required</p>
         <%= @calc_calories = current_user.body_metric.calculated_calories %>
     </div>
-    <p>You still need to take <%= (@calc_calories-@taken_calories).to_i %> calories to maintain your weight.</p>
+    <% if (@remaining_calories =  (@calc_calories-@taken_calories).to_i) > 0 %>
+      <p>You still need to take <%= @remaining_calories %> calories to maintain your weight.</p>
+    <% else %>
+      <p>You ate enough calories for today</p>
+    <% end %>
     <p>Progress</p>
+    <% @calc_width=(@taken_calories.to_f/@calc_calories.to_f)*100 %>
+    <% if @calc_width > 100 %>
+          <% flash.now[:danger] = "You ate more than needed calories for today" %>
+    <% end %>
     <div class="progress">
-      <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax=<%= @calc_calories %> style="width: <%= @calc_width=(@taken_calories.to_f/@calc_calories.to_f)*100 %>%;">
+      <div id='pb' class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax=<%= @calc_calories %> style="width: <%= @calc_width %>%;">
         <%= @calc_width.to_i %>% completed
       </div>
     </div>

@@ -10,6 +10,7 @@ class FoodItemsController < ApplicationController
     if current_user.admin?
       @food_item = FoodItem.create(food_item_params)
       if @food_item.save
+      flash[:success] = "Successfully added"
         redirect_to food_items_path
       else
         render 'new'
@@ -30,6 +31,7 @@ class FoodItemsController < ApplicationController
   def update
     if current_user.admin?
       if @food_item.update_attributes(food_item_params)
+      flash[:success] = "Successfully updated"
         redirect_to food_items_path
       else
         render 'edit'

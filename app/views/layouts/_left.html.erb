@@ -1,15 +1,16 @@
 <nav class="left-menu">
   <ul>
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'BodyMetric', new_body_metric_path %></li>
-    <li><%= link_to 'FoodList',food_items_path %></li>
-    <li><%= link_to 'FoodRecord', new_food_record_path %></li>
+    <%= link_to root_path do %><li>Home</li><% end %>
+    <%= link_to  new_body_metric_path do %><li>Body Metric</li><% end %>
+    <%= link_to food_items_path do %><li>Food List</li><% end %>
+    <%= link_to new_food_record_path do %><li>Food Record</li><% end %>
     <% if current_user.admin? %>
-      <li><%= link_to 'WorkoutVideos', new_workout_path %></li>
+      <%= link_to new_workout_path do %><li>WorkoutVideos</li><% end %>
     <% else %>
-      <li><%= link_to 'WorkoutVideos', workouts_path %></li>
+      <%= link_to  workouts_path do %><li>Workout Videos</li><% end %>
     <% end %>
-    <li><%= link_to 'Food Record Log', check_log_path %></li>
+    <%= link_to check_log_path do %><li>Food Record Log</li><% end %>
+    <%= link_to  graph_path do %><li>Weekly Report</li><% end %>
   </ul>
 </nav>
 
