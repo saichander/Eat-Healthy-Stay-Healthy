@@ -3,13 +3,13 @@
     <h1>Welcome <%= current_user.email %> </h1>
     <div class="calorie-home">
       <p>Calories Taken</p>
-      <%= @taken_calories = current_user.food_records.where(intake_date: Date.today).map(&:intake_calories).sum %>
+      <%= @taken_calories %>
     </div>
     <div class="calorie-home">
       <% if current_user.body_metric.nil? %>
       <% else %>
         <p>Calories Required</p>
-        <%= @calc_calories = current_user.body_metric.calculated_calories %>
+        <%= @calc_calories %>
     </div>
     <% if (@remaining_calories =  (@calc_calories-@taken_calories).to_i) > 0 %>
       <p>You still need to take <%= @remaining_calories %> calories to maintain your weight.</p>
@@ -17,10 +17,6 @@
       <p>You ate enough calories for today</p>
     <% end %>
     <p>Progress</p>
-    <% @calc_width=(@taken_calories.to_f/@calc_calories.to_f)*100 %>
-    <% if @calc_width > 100 %>
-          <% flash.now[:danger] = "You ate more than needed calories for today" %>
-    <% end %>
     <div class="progress">
       <div id='pb' class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax=<%= @calc_calories %> style="width: <%= @calc_width %>%;">
         <%= @calc_width.to_i %>% completed

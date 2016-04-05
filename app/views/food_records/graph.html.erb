@@ -21,7 +21,7 @@ $(function(){
     series: [{
       pointInterval: <%= 1.day * 1000 %>,
       pointStart: <%= 1.week.ago.to_i * 1000%>,
-      data: <%= (1.week.ago.to_date..Date.today).map {|date| FoodRecord.find_todays_calories(date).to_f}.inspect %>
+      data: <%= (1.week.ago.to_date..Date.today).map {|date| current_user.food_records.find_todays_calories(date).to_f}.inspect %>
     }]
   });
 });

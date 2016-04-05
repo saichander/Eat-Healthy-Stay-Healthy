@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(
+User.first_or_create!(
   email: "test@gmail.com",
   password: "test12345",
   password_confirmation: "test12345",
@@ -13,7 +13,7 @@ User.create!(
   dob: Date.today,
   gender: "male"
 )
-User.create!(
+User.first_or_create!(
   email: "seed@gmail.com",
   password: "seed12345",
   password_confirmation: "seed12345",
@@ -21,16 +21,16 @@ User.create!(
   dob: Date.today,
   gender: "female"
 )
-FoodItem.create!(item:"chocolate",
+FoodItem.first_or_create!(item:"chocolate",
                           quantity:"1",
                           metrics: "piece",
                           calories:"123")
 
-FoodItem.create(item:"beer",
+FoodItem.first_or_create(item:"beer",
+                         quantity:"1",
+                         metrics: "piece",
+                         calories:"123")
+FoodItem.first_or_create!(item:"wine",
                           quantity:"1",
                           metrics: "piece",
                           calories:"123")
-FoodItem.create!(item:"wine",
-                    quantity:"1",
-                 metrics: "piece",
-                 calories:"123")
