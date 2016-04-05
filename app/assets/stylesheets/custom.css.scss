@@ -10,7 +10,7 @@ background-size:cover;
 background: url("http://abdtransmarinas.com/beta/wp-content/uploads/2015/12/Food.jpg") no-repeat}
  */
 .center{
-  margin:40px auto 15px;
+  margin:8px auto 25px;
   width:65%;
 }
 .btn, .btn-default{
@@ -65,16 +65,18 @@ nav ul.navbar-right{
       border-right:1px solid #D6D6D6;
       border-bottom:1px solid #D6D6D6;
       &:hover{
-      text-decoration:none!important;
+        text-decoration:none!important;
       }
   }}
 }
 .home-right{
+  float:right;
   position:absolute;
   right:0;
   top:105px;
   bottom:50px;
   padding-right:10px;
+  font-size:18px;
 }
 .calorie-home{
   background-color:#EEEEEE;
@@ -157,4 +159,12 @@ top:215px;
 }
 .links-colour li .colour{
   color:white;
+}
+.table-suggestion{
+  position:absolute;
+  right:0;
+  top:135px;
+  width:15%;
+  bottom:50px;
+  padding-right:10px;
 }

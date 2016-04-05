@@ -18,7 +18,6 @@ class FoodRecordsController < ApplicationController
 
   def index
     @food_record = FoodRecord.new
-    #@food_records = current_user.food_records.where(intake_date: Date.today)
     @food_records = current_user.today_food_records
   end
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
   get '/body_metric/new' => 'body_metrics#new', as: :new_body_metric
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
   patch '/workouts/:id' => 'workouts#update',as: :update_workout
   delete '/workouts/:id' => 'workouts#destroy',as: :destroy_workout
   post 'workouts/search' => 'workouts#search',as: :search_video
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

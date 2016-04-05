@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="home-main">
-    <h1>Welcome <%= current_user.email %> </h1>
+    <h1>Welcome to Calories app</h1>
     <div class="calorie-home">
       <p>Calories Taken</p>
       <%= @taken_calories %>
@@ -31,10 +31,8 @@
   <% else %>
     <p>You have 0 food records today</p>
   <% end %>
-  <div class="home-right">
-    <%= render :template => 'food_items/suggestion' %>
   </div>
-  </div>
+  <%= render :template => 'food_items/suggestion' %>
 <% else %>
   <div class="signup home-signup">
     <h1>Count your calories</h1>

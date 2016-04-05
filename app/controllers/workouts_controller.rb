@@ -1,4 +1,5 @@
 class WorkoutsController < ApplicationController
+  before_action :set_workout_record, only: [:edit, :update, :destroy]
   def new
     @workout = Workout.new
     @workouts = Workout.all
@@ -25,12 +26,10 @@ class WorkoutsController < ApplicationController
   end
 
   def edit
-    @workout = Workout.find(params[:id])
   end
 
   def update
     if current_user.admin?
-      @workout = Workout.find(params[:id])
       if @workout.update_attributes(workout_params)
         flash[:success] = "Successfully updated"
         redirect_to workouts_path
@@ -42,7 +41,6 @@ class WorkoutsController < ApplicationController
 
   def destroy
     if current_user.admin?
-      @workout = Workout.find(params[:id])
       if @workout.destroy
         flash[:success] = "Successfully destroyed"
         redirect_to workouts_path
@@ -54,5 +52,9 @@ class WorkoutsController < ApplicationController
 
   def workout_params
     params.require(:workout).permit(:title, :youtube_url)
+  end
+
+  def set_workout_record
+    @workout = Workout.find(params[:id])
   end
 end
